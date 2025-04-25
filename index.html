@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hammond PSD – Clean Water, Strong Communities</title>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <meta charset="utf-8">
+  <title>Hammond PSD - Clean Water, Strong Communities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* Variables */
     :root {
       --primary-color: #0077b6;
       --secondary-color: #90e0ef;
       --background-color: #ffffff;
+      --section-bg: #f4f8fb;
       --text-color: #222222;
       --accent-color: #00b4d8;
     }
 
-    /* General Styles */
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--background-color);
@@ -36,7 +29,6 @@
       margin: auto;
     }
 
-    /* Header */
     header {
       background: var(--background-color);
       width: 100%;
@@ -69,17 +61,15 @@
       color: var(--accent-color);
     }
 
-    /* Hamburger Menu */
     .hamburger {
       display: none;
       font-size: 2rem;
       cursor: pointer;
     }
 
-    /* Hero Section with Logo Background */
     #hero {
       background: url('hammond_psd_logo_transparent.png') no-repeat center center/contain;
-      background-color: #0077b6;
+      background-color: var(--primary-color);
       background-blend-mode: multiply;
       min-height: 90vh;
       display: flex;
@@ -93,40 +83,34 @@
     }
 
     .hero-content {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.4);
       padding: 2rem;
       border-radius: 12px;
       max-width: 600px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
     }
 
     .hero-content a {
-      margin: 0.5rem 0;
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
     }
 
-    #hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    #hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
+    .btn, .btn-primary, .btn-secondary {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 0.75rem 0;
       border-radius: 5px;
       font-weight: bold;
       text-decoration: none;
-      margin: 0.5rem;
+      text-align: center;
     }
 
-    .btn-primary {
+    .btn-primary, .btn {
       background: var(--primary-color);
       color: #fff;
     }
@@ -136,9 +120,12 @@
       color: #000;
     }
 
-    /* Sections */
     section {
       padding: 4rem 0;
+    }
+
+    section:nth-of-type(even) {
+      background-color: var(--section-bg);
     }
 
     section h2 {
@@ -153,7 +140,6 @@
       margin: 0 auto;
     }
 
-    /* Footer */
     footer {
       background: var(--primary-color);
       color: #fff;
@@ -161,7 +147,6 @@
       padding: 1rem 0;
     }
 
-    /* Floating Pay Bill Button */
     .floating-btn {
       position: fixed;
       bottom: 20px;
@@ -175,7 +160,6 @@
       z-index: 999;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -189,28 +173,14 @@
         border-left: 1px solid #ccc;
       }
 
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      #hero h1 {
-        font-size: 2rem;
-      }
-
-      #hero p {
-        font-size: 1rem;
-      }
+      .nav-links.active { display: flex; }
+      .hamburger { display: block; }
+      #hero h1 { font-size: 2rem; }
+      #hero p { font-size: 1rem; }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- Header with sticky nav -->
   <header id="header">
     <div class="container">
       <nav id="nav">
@@ -228,7 +198,6 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content" data-aos="fade-up">
       <h1>Clean Water, Strong Communities</h1>
@@ -238,7 +207,6 @@
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" data-aos="fade-up">
     <div class="container">
       <h2>About Hammond PSD</h2>
@@ -246,7 +214,6 @@
     </div>
   </section>
 
-  <!-- Water Quality Section -->
   <section id="water-quality" data-aos="fade-up">
     <div class="container">
       <h2>Water Quality Reports</h2>
@@ -255,7 +222,6 @@
     </div>
   </section>
 
-  <!-- Billing & Payments Section -->
   <section id="billing" data-aos="fade-up">
     <div class="container">
       <h2>Billing & Payments</h2>
@@ -264,7 +230,6 @@
     </div>
   </section>
 
-  <!-- Customer Service Section -->
   <section id="customer-service" data-aos="fade-up">
     <div class="container">
       <h2>Customer Service</h2>
@@ -272,7 +237,6 @@
     </div>
   </section>
 
-  <!-- News & Alerts Section -->
   <section id="news-alerts" data-aos="fade-up">
     <div class="container">
       <h2>News & Alerts</h2>
@@ -280,7 +244,6 @@
     </div>
   </section>
 
-  <!-- FAQs Section -->
   <section id="faqs" data-aos="fade-up">
     <div class="container">
       <h2>Frequently Asked Questions</h2>
@@ -288,40 +251,29 @@
     </div>
   </section>
 
-  <!-- Floating Pay Button -->
   <a href="#billing" class="floating-btn">Pay Bill</a>
 
-  <!-- JavaScript -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {
       item.addEventListener('click', () => {
         navLinks.classList.remove('active');
       });
     });
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
-
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
       if (window.scrollY > 50) {
