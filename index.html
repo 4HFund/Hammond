@@ -99,10 +99,18 @@
   <a href="#billing" class="floating-btn">Pay Bill</a>
 
   <!-- External JS -->
-  <script src="js/aos.js"></script>
-  <script src="js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
   </script>
 
 </body>
