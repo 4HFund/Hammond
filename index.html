@@ -36,12 +36,6 @@
       margin: auto;
     }
 
-    /* Logo image style */
-    .logo {
-      max-height: 50px;
-      width: auto;
-    }
-
     /* Header */
     header {
       background: var(--background-color);
@@ -82,11 +76,14 @@
       cursor: pointer;
     }
 
-    /* Hero Section with Water-Themed Background */
+    /* Hero Section with Logo Background */
     #hero {
-      background: url('https://images.unsplash.com/photo-1532274402917-5aadf881bdfd?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      background: url('hammond_psd_logo_transparent.png') no-repeat center center/contain;
+      background-color: #0077b6;
+      background-blend-mode: multiply;
       min-height: 90vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -100,6 +97,13 @@
       padding: 2rem;
       border-radius: 12px;
       max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-content a {
+      margin: 0.5rem 0;
     }
 
     #hero h1 {
@@ -209,7 +213,6 @@
   <!-- Header with sticky nav -->
   <header id="header">
     <div class="container">
-      <img src="hammond_psd_logo_transparent.png" alt="Hammond PSD Logo" class="logo" />
       <nav id="nav">
         <ul class="nav-links">
           <li><a href="#hero">Home</a></li>
@@ -293,7 +296,6 @@
   <script>
     AOS.init();
 
-    // Mobile Navigation Toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
 
@@ -301,7 +303,6 @@
       navLinks.classList.toggle('active');
     });
 
-    // Close menu when link clicked
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {
       item.addEventListener('click', () => {
@@ -309,7 +310,6 @@
       });
     });
 
-    // Smooth Scrolling for Internal Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -322,7 +322,6 @@
       });
     });
 
-    // Dynamic Header on Scroll
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
       if (window.scrollY > 50) {
