@@ -30,7 +30,7 @@ body {
 
 /* Logo image style */
 .logo {
-  max-height: 60px;
+  max-height: 50px;
   width: auto;
 }
 
@@ -74,10 +74,10 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero Section with Water-Themed Background */
 #hero {
-  background: url('hero-background.jpg') no-repeat center center/cover;
-  background-color: #0077b6; /* fallback */
+  background: url('https://images.unsplash.com/photo-1532274402917-5aadf881bdfd?auto=format&fit=crop&w=1600&q=80')
+    no-repeat center center/cover;
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -85,12 +85,14 @@ nav a:hover {
   text-align: center;
   color: #fff;
   position: relative;
+  padding: 2rem;
 }
 
 .hero-content {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 12px;
+  max-width: 600px;
 }
 
 #hero h1 {
