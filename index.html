@@ -1,287 +1,161 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Hammond PSD - Clean Water, Strong Communities</title>
+  <title>Hammond PSD – Clean Water, Strong Communities</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --primary-color: #0077b6;
-      --secondary-color: #90e0ef;
-      --background-color: #ffffff;
-      --section-bg: #f4f8fb;
-      --text-color: #222222;
-      --accent-color: #00b4d8;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --primary:#0077b6;
+      --secondary:#90e0ef;
+      --bg:#ffffff;
+      --section-bg:#f4f8fb;
+      --text:#222;
+      --accent:#00b4d8;
     }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    header{background:var(--bg);position:sticky;top:0;z-index:1000;border-bottom:1px solid #ccc;}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;}
+    nav ul{display:flex;gap:1.5rem;list-style:none;}
+    nav a{text-decoration:none;color:var(--text);font-weight:600;}
+    nav a:hover{color:var(--accent);}
+    .hamburger{display:none;font-size:2rem;cursor:pointer;}
+    @media(max-width:768px){
+      .nav-links{display:none;flex-direction:column;background:var(--bg);position:absolute;top:70px;right:0;width:60%;padding:2rem;border-left:1px solid #ccc;}
+      .nav-links.active{display:flex;}
+      .hamburger{display:block;}
     }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    header {
-      background: var(--background-color);
-      width: 100%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #ccc;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-
-    #hero {
-      background: url('hammond_psd_logo_transparent.png') no-repeat center center/contain;
-      background-color: var(--primary-color);
-      background-blend-mode: multiply;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      padding: 2rem;
-    }
-
-    .hero-content {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .hero-content a {
-      width: 100%;
-      max-width: 200px;
-      text-align: center;
-    }
-
-    .btn, .btn-primary, .btn-secondary {
-      display: block;
-      width: 200px;
-      margin: 20px auto;
-      padding: 0.75rem 0;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .btn-primary, .btn {
-      background: var(--primary-color);
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: var(--secondary-color);
-      color: #000;
-    }
-
-    section {
-      padding: 4rem 0;
-    }
-
-    section:nth-of-type(even) {
-      background-color: var(--section-bg);
-    }
-
-    section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    footer {
-      background: var(--primary-color);
-      color: #fff;
-      text-align: center;
-      padding: 1rem 0;
-    }
-
-    .floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--accent-color);
-      color: #fff;
-      padding: 0.75rem 1.25rem;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      z-index: 999;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: var(--background-color);
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 50%;
-        padding: 2rem;
-        border-left: 1px solid #ccc;
-      }
-
-      .nav-links.active { display: flex; }
-      .hamburger { display: block; }
-      #hero h1 { font-size: 2rem; }
-      #hero p { font-size: 1rem; }
-    }
+    /* Hero */
+    #hero{background:url('hammond_psd_logo_transparent.png') no-repeat center center/contain;
+          background-color:var(--primary);background-blend-mode:multiply;
+          min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:2rem;}
+    .hero-box{background:rgba(0,0,0,0.4);padding:2rem;border-radius:12px;max-width:600px;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+    h1{font-size:2.5rem;}
+    .btn{display:block;width:200px;margin:10px auto;padding:.75rem 0;border-radius:5px;font-weight:bold;text-decoration:none;text-align:center;}
+    .btn-primary{background:var(--primary);color:#fff;}
+    .btn-secondary{background:var(--secondary);color:#000;}
+    /* Sections */
+    section{padding:4rem 0;}
+    section:nth-of-type(even){background:var(--section-bg);}
+    section h2{font-size:2rem;text-align:center;margin-bottom:1rem;}
+    section p{max-width:750px;margin:0 auto 1.5rem;text-align:center;}
+    /* Footer */
+    footer{background:var(--primary);color:#fff;text-align:center;padding:1rem 0;}
+    /* Floating Pay */
+    .floating-btn{position:fixed;bottom:20px;right:20px;background:var(--accent);color:#fff;padding:.75rem 1.25rem;border-radius:50px;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:999;}
   </style>
 </head>
 <body>
-  <header id="header">
-    <div class="container">
-      <nav id="nav">
-        <ul class="nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#water-quality">Water Quality</a></li>
-          <li><a href="#billing">Billing & Payments</a></li>
-          <li><a href="#customer-service">Customer Service</a></li>
-          <li><a href="#news-alerts">News & Alerts</a></li>
-          <li><a href="#faqs">FAQs</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger">&#9776;</div>
-      </nav>
-    </div>
-  </header>
+<header id="header">
+  <div class="container">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#water-quality">Water Quality</a></li>
+        <li><a href="#billing">Billing & Payments</a></li>
+        <li><a href="#customer-service">Customer Service</a></li>
+        <li><a href="#news-alerts">News & Alerts</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
+  </div>
+</header>
 
-  <section id="hero">
-    <div class="hero-content" data-aos="fade-up">
-      <h1>Clean Water, Strong Communities</h1>
-      <p>Providing safe, reliable water services to our community.</p>
-      <a href="#billing" class="btn-primary">Pay Bill</a>
-      <a href="#customer-service" class="btn-secondary">Start Service</a>
-    </div>
-  </section>
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-box" data-aos="fade-up">
+    <h1>Clean Water, Strong Communities</h1>
+    <p>Reliable drinking water for more than 900 homes and businesses in Brooke County, WV.</p>
+    <a href="https://www.payclix.com" target="_blank" class="btn btn-primary">Pay Bill Online</a>
+    <a href="#customer-service" class="btn btn-secondary">Start / Stop Service</a>
+  </div>
+</section>
 
-  <section id="about" data-aos="fade-up">
-    <div class="container">
-      <h2>About Hammond PSD</h2>
-      <p>Dedicated to delivering clean, safe, and reliable water services to our community, fostering trust and transparency every step of the way.</p>
-    </div>
-  </section>
+<!-- About -->
+<section id="about" data-aos="fade-up">
+  <div class="container">
+    <h2>About Hammond PSD</h2>
+    <p>Hammond Public Service District commits to improving and maintaining the public health protection and performance of our drinking‑water and distribution assets&nbsp;while minimizing long‑term operating costs. We invest in cost‑effective renewal and replacement, provide the highest‑quality customer service possible, and manage water resources to meet evolving regulations and customer needs.</p>
+  </div>
+</section>
 
-  <section id="water-quality" data-aos="fade-up">
-    <div class="container">
-      <h2>Water Quality Reports</h2>
-      <p>Access detailed annual reports and updates about the quality of your water.</p>
-      <a href="#" class="btn-secondary">View Reports</a>
-    </div>
-  </section>
+<!-- Water Quality -->
+<section id="water-quality" data-aos="fade-up">
+  <div class="container">
+    <h2>Water Quality Reports</h2>
+    <p>Read our latest Consumer Confidence Report (CCR) for details on source water, testing results, and compliance.</p>
+    <a href="https://static1.squarespace.com/static/64cc60b85d8fc942142bc2e1/t/653064aaf4e16c3feaaf4c34/1697645869871/2023+Hammond+CCR.pdf" class="btn btn-secondary" target="_blank">2023 CCR</a>
+  </div>
+</section>
 
-  <section id="billing" data-aos="fade-up">
-    <div class="container">
-      <h2>Billing & Payments</h2>
-      <p>Manage your water bills conveniently online.</p>
-      <a href="#" class="btn-primary">Pay Now</a>
-    </div>
-  </section>
+<!-- Billing & Payments -->
+<section id="billing" data-aos="fade-up">
+  <div class="container">
+    <h2>Billing &amp; Payments</h2>
+    <p><strong>Office payments:</strong> Monday–Friday, 8 AM – 4 PM.<br>
+       <strong>Mail payments to:</strong> 59 Town Square, Wellsburg, WV 26070.<br>
+       <strong>Online:</strong> Pay Clix (registration required).<br>
+       <strong>Drop‑box:</strong> Outdoor mailbox available 24/7.</p>
+    <a href="https://www.payclix.com" target="_blank" class="btn btn-primary">Pay Now via PayClix</a>
+  </div>
+</section>
 
-  <section id="customer-service" data-aos="fade-up">
-    <div class="container">
-      <h2>Customer Service</h2>
-      <p>Start, stop, or transfer your water service easily through our support team.</p>
-    </div>
-  </section>
+<!-- Customer Service -->
+<section id="customer-service" data-aos="fade-up">
+  <div class="container">
+    <h2>Customer Service &amp; Emergencies</h2>
+    <p><strong>Office:</strong> 304‑737‑4421 &nbsp;|&nbsp; <strong>Plant (after hours):</strong> 304‑737‑2588<br>
+       <strong>Email:</strong> hammondpsd@frontier.com<br>
+       <strong>Hours:</strong> Mon–Fri 8 AM – 4 PM</p>
+  </div>
+</section>
 
-  <section id="news-alerts" data-aos="fade-up">
-    <div class="container">
-      <h2>News & Alerts</h2>
-      <p>Stay informed with the latest water district news and service alerts.</p>
-    </div>
-  </section>
+<!-- News & Alerts -->
+<section id="news-alerts" data-aos="fade-up">
+  <div class="container">
+    <h2>News &amp; Alerts</h2>
+    <p>Stay up to date on planned outages, project updates, and public notices.</p>
+    <a href="https://www.hammondpsd.com/updates" target="_blank" class="btn btn-secondary">View Latest Updates</a>
+  </div>
+</section>
 
-  <section id="faqs" data-aos="fade-up">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <p>Find answers to common questions about billing, services, and water quality.</p>
-    </div>
-  </section>
+<!-- FAQs -->
+<section id="faqs" data-aos="fade-up">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <p>Find answers about deposits, leak adjustments, payment options, and more.</p>
+    <a href="https://www.hammondpsd.com/faq" target="_blank" class="btn btn-secondary">Read FAQs</a>
+  </div>
+</section>
 
-  <a href="#billing" class="floating-btn">Pay Bill</a>
+<footer>
+  <p>Hammond Public Service District &bull; 59 Town Square, Wellsburg, WV 26070 &bull; 304‑737‑4421</p>
+  <small>&copy; 2025 Hammond PSD. Built with ❤️ by <a href="https://quicknestsites.com" target="_blank">QuickNest Sites</a>.</small>
+</footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+<a href="https://www.payclix.com" target="_blank" class="floating-btn">Pay Bill</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  const hamburger=document.getElementById('hamburger');
+  const navLinks=document.querySelector('.nav-links');
+  hamburger.addEventListener('click',()=>navLinks.classList.toggle('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('active')));
+  document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+    anchor.addEventListener('click',e=>{
+      if(anchor.getAttribute('href').startsWith('#')){
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+        const target=document.querySelector(anchor.getAttribute('href'));
+        target&&target.scrollIntoView({behavior:'smooth'});
       }
     });
-  </script>
+  });
+</script>
 </body>
 </html>
