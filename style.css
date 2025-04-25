@@ -28,6 +28,12 @@ body {
   margin: auto;
 }
 
+/* Logo image style */
+.logo {
+  max-height: 60px;
+  width: auto;
+}
+
 /* Header */
 header {
   background: var(--background-color);
@@ -70,7 +76,8 @@ nav a:hover {
 
 /* Hero Section */
 #hero {
-  background: url('../assets/hero-background.jpg') no-repeat center center/cover;
+  background: url('hero-background.jpg') no-repeat center center/cover;
+  background-color: #0077b6; /* fallback */
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -96,7 +103,8 @@ nav a:hover {
   margin-bottom: 2rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
@@ -150,7 +158,7 @@ footer {
   padding: 0.75rem 1.25rem;
   border-radius: 50px;
   text-decoration: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 999;
 }
 
