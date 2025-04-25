@@ -7,20 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
+    /* Make header bar blue and center nav links */
+    header { background: var(--primary); }
+    nav { justify-content: center; }
     *{margin:0;padding:0;box-sizing:border-box;}
     :root{
       --primary:#0077b6;
-      --secondary:#90e0ef;
+      --secondary: #4DAFE6;
       --bg:#ffffff;
-      --section-bg:#f4f8fb;
+      --section-bg:#d0edf8;
       --text:#222;
-      --accent:#00b4d8;
+      --accent: #009BB3;
     }
+    /* Header full-width and blue background */
+    header {
+      background: var(--primary) !important;
+    }
+    header .container {
+      max-width: 100%;
+      width: 100%;
+      padding: 0 1rem;
+    }
+    /* Center navigation links */
+    nav {
+      justify-content: center !important;
+    }
+    nav ul {
+      width: 100%;
+      justify-content: center;
+    }
+
     body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-    header{background:var(--bg);position:sticky;top:0;z-index:1000;border-bottom:1px solid #ccc;}
+    header { background: var(--primary);background:var(--bg);position:sticky;top:0;z-index:1000;border-bottom:1px solid #ccc;}
     nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;}
     nav ul{display:flex;gap:1.5rem;list-style:none;}
-    nav a{text-decoration:none;color:var(--text);font-weight:600;}
+    nav a { color: #fff;text-decoration:none;color:var(--text);font-weight:600;}
     nav a:hover{color:var(--accent);}
     .hamburger{display:none;font-size:2rem;cursor:pointer;}
     @media(max-width:768px){
@@ -30,7 +51,7 @@
     }
     /* Hero */
     #hero{background:url('hammond_psd_logo_transparent.png') no-repeat center center/contain;
-          background-color:var(--primary);background-blend-mode:multiply;
+          background-color: #ffffff;
           min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:2rem;}
     .hero-box{background:rgba(0,0,0,0.4);padding:2rem;border-radius:12px;max-width:600px;display:flex;flex-direction:column;align-items:center;gap:1rem;}
     h1{font-size:2.5rem;}
